@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="uz">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -29,73 +27,46 @@
       color: #302a25;
       font-family: "Montserrat", sans-serif;
       text-align: center;
+      overflow-x: hidden;
     }
 
-
-    /* =========================
-       BOSH SAHIFA
-    ========================= */
+    /* BOSH SAHIFA */
 
     .hero {
       min-height: 100vh;
-      padding: 45px 20px 60px;
-
+      padding: 35px 20px 55px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
       position: relative;
       overflow: hidden;
-
-      background:
-        linear-gradient(
-          rgba(247,243,237,0.88),
-          rgba(247,243,237,0.97)
-        );
     }
 
-
-    /* =========================
-       GUL DEKORLARI
-    ========================= */
+    /* GUL DEKORLARI */
 
     .hero::before,
     .hero::after {
       content: "✿";
-
       position: absolute;
-
       font-size: 90px;
-
-      color:
-        rgba(184, 154, 106, 0.16);
-
+      color: rgba(184, 154, 106, 0.16);
       font-family: serif;
-
       pointer-events: none;
-
       z-index: 0;
     }
-
 
     .hero::before {
       top: 20px;
       left: -15px;
-
-      transform:
-        rotate(-20deg);
+      transform: rotate(-20deg);
     }
-
 
     .hero::after {
       right: -15px;
       bottom: 20px;
-
-      transform:
-        rotate(20deg);
+      transform: rotate(20deg);
     }
-
 
     .hero-image,
     .small-title,
@@ -108,480 +79,355 @@
       z-index: 1;
     }
 
-
-    /* =========================
-       ASOSIY RASM
-    ========================= */
+    /* ASOSIY RASM */
 
     .hero-image {
       width: 100%;
       max-width: 380px;
       height: 500px;
-
       margin-bottom: 30px;
-
       overflow: hidden;
-
-      border-radius:
-        190px 190px 30px 30px;
-
-      box-shadow:
-        0 18px 40px
-        rgba(0,0,0,0.18);
-
-      animation:
-        imageAppear 1.8s ease;
+      border-radius: 190px 190px 30px 30px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+      animation: imageAppear 1.8s ease;
     }
-
 
     .hero-image img {
       width: 100%;
       height: 100%;
-
       object-fit: cover;
       object-position: center;
-
       display: block;
     }
 
-
-    /* =========================
-       YOZUVLAR
-    ========================= */
+    /* YOZUVLAR */
 
     .small-title {
       font-size: 12px;
       letter-spacing: 4px;
       text-transform: uppercase;
-
       margin-bottom: 25px;
-
-      animation:
-        textAppear 2s ease;
+      animation: textAppear 2s ease;
     }
-
 
     .names {
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
+      font-family: "Cormorant Garamond", serif;
       font-size: 64px;
       line-height: 0.95;
-
       font-weight: 500;
-
-      animation:
-        textAppear 2.2s ease;
+      animation: textAppear 2.2s ease;
     }
-
 
     .and {
       font-size: 30px;
       font-style: italic;
-
       margin: 15px 0;
     }
 
-
     .invitation {
       max-width: 430px;
-
       margin-top: 35px;
-
       font-size: 14px;
       line-height: 1.9;
-
       font-weight: 300;
-
-      animation:
-        textAppear 2.5s ease;
+      animation: textAppear 2.5s ease;
     }
-
 
     .date {
       margin-top: 35px;
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
+      font-family: "Cormorant Garamond", serif;
       font-size: 28px;
       letter-spacing: 2px;
     }
 
-
     .time {
       margin-top: 8px;
-
       font-size: 13px;
       letter-spacing: 3px;
     }
 
-
     .divider {
       width: 60px;
       height: 1px;
-
       background: #b89a6a;
-
       margin: 35px auto;
     }
 
-
-    /* =========================
-       BO'LIMLAR
-    ========================= */
+    /* BO'LIMLAR */
 
     section {
-      padding: 90px 25px;
-
+      padding: 85px 20px;
       max-width: 700px;
-
       margin: auto;
-
       opacity: 0;
-
-      transform:
-        translateY(35px);
-
-      transition:
-        opacity 1s ease,
-        transform 1s ease;
+      transform: translateY(35px);
+      transition: opacity 1s ease, transform 1s ease;
     }
-
 
     section.show {
       opacity: 1;
-
-      transform:
-        translateY(0);
+      transform: translateY(0);
     }
 
-
     .section-title {
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
+      font-family: "Cormorant Garamond", serif;
       font-size: 42px;
-
       font-weight: 500;
-
       margin-bottom: 25px;
     }
 
-
-    /* Sarlavha ostidagi gul */
-
     .section-title::after {
       content: "❀";
-
       display: block;
-
       margin-top: 12px;
-
       font-size: 18px;
-
       color: #b89a6a;
     }
 
-
     .text {
       font-size: 14px;
-
       line-height: 2;
-
       font-weight: 300;
     }
 
-
-    /* =========================
-       COUNTDOWN
-    ========================= */
+    /* COUNTDOWN */
 
     .countdown {
       display: flex;
-
       justify-content: center;
-
       gap: 12px;
-
       margin-top: 35px;
-
       flex-wrap: wrap;
     }
 
-
     .time-box {
       width: 75px;
-
       padding: 18px 5px;
-
-      border:
-        1px solid #d6c9b8;
-
-      background:
-        #fbf9f5;
+      border: 1px solid #d6c9b8;
+      background: #fbf9f5;
     }
-
 
     .time-box strong {
       display: block;
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
+      font-family: "Cormorant Garamond", serif;
       font-size: 30px;
-
       font-weight: 500;
     }
-
 
     .time-box span {
       font-size: 9px;
-
       letter-spacing: 1px;
-
       text-transform: uppercase;
     }
 
+    /* GALEREYA */
 
-    /* =========================
-       MANZIL
-    ========================= */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 35px;
+    }
+
+    .gallery-item {
+      height: 250px;
+      overflow: hidden;
+      cursor: pointer;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+    }
+
+    .gallery-item:first-child {
+      grid-column: span 2;
+      height: 420px;
+      border-radius: 180px 180px 25px 25px;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    /* KATTALASHTIRIB OCHILADIGAN RASM */
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .lightbox.show {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 100%;
+      max-height: 90vh;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      color: white;
+      font-size: 38px;
+      cursor: pointer;
+    }
+
+    /* MANZIL */
 
     .location {
       margin-top: 30px;
-
       padding: 30px 20px;
-
-      border:
-        1px solid #d6c9b8;
-
-      background:
-        #fbf9f5;
+      border: 1px solid #d6c9b8;
+      background: #fbf9f5;
     }
-
 
     .location h3 {
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
+      font-family: "Cormorant Garamond", serif;
       font-size: 27px;
-
       font-weight: 500;
-
       margin-bottom: 12px;
     }
-
 
     .map-button,
     .music-button {
       display: inline-block;
-
       margin-top: 22px;
-
       padding: 13px 25px;
-
-      border:
-        1px solid #b89a6a;
-
-      background:
-        transparent;
-
-      color:
-        #302a25;
-
-      text-decoration:
-        none;
-
+      border: 1px solid #b89a6a;
+      background: transparent;
+      color: #302a25;
+      text-decoration: none;
       font-size: 11px;
-
       letter-spacing: 1px;
-
       text-transform: uppercase;
-
-      cursor:
-        pointer;
+      cursor: pointer;
     }
 
-
-    /* =========================
-       MUSIQA
-    ========================= */
+    /* MUSIQA */
 
     .music-button {
       position: fixed;
-
       right: 20px;
       bottom: 20px;
-
       border-radius: 50%;
-
       width: 52px;
       height: 52px;
-
       padding: 0;
-
+      margin: 0;
       z-index: 10;
-
-      background:
-        #f7f3ed;
+      background: #f7f3ed;
     }
-
-
-    /* =========================
-       FOOTER
-    ========================= */
 
     footer {
       padding: 60px 20px;
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
+      font-family: "Cormorant Garamond", serif;
       font-size: 25px;
     }
 
-
-    /* =========================
-       ANIMATSIYA
-    ========================= */
+    /* ANIMATSIYA */
 
     @keyframes imageAppear {
-
       from {
         opacity: 0;
-
-        transform:
-          scale(0.94)
-          translateY(20px);
+        transform: scale(0.94) translateY(20px);
       }
 
       to {
         opacity: 1;
-
-        transform:
-          scale(1)
-          translateY(0);
+        transform: scale(1) translateY(0);
       }
     }
-
 
     @keyframes textAppear {
-
       from {
         opacity: 0;
-
-        transform:
-          translateY(25px);
+        transform: translateY(25px);
       }
 
       to {
         opacity: 1;
-
-        transform:
-          translateY(0);
+        transform: translateY(0);
       }
     }
 
-
-    /* =========================
-       TELEFON UCHUN
-    ========================= */
+    /* TELEFON UCHUN */
 
     @media (max-width: 500px) {
 
-      .hero {
-        padding:
-          35px 20px 55px;
-      }
-
-
       .hero-image {
         height: 470px;
-
         max-width: 340px;
       }
-
 
       .names {
         font-size: 56px;
       }
 
+      .gallery-item {
+        height: 210px;
+      }
+
+      .gallery-item:first-child {
+        height: 380px;
+      }
+
     }
 
   </style>
-
 </head>
 
-
 <body>
-
 
   <!-- BOSH SAHIFA -->
 
   <div class="hero">
 
-
-    <!-- ASOSIY RASM -->
-
     <div class="hero-image">
-
-      <img
-        src="couple.jpg"
-        alt="Ruxshona va Azizbek">
-
+      <img src="couple.jpg" alt="Ruxshona va Azizbek">
     </div>
-
 
     <div class="small-title">
       Bizning to‘yimiz
     </div>
 
-
     <div class="names">
-
       Ruxshona
-
-      <div class="and">
-        &
-      </div>
-
+      <div class="and">&</div>
       Azizbek
-
     </div>
 
-
     <p class="invitation">
-
-      Hayotimizdagi eng go‘zal
-      kunlardan birini siz bilan
-      birga nishonlashdan
+      Hayotimizdagi eng go‘zal kunlardan birini
+      siz bilan birga nishonlashdan
       mamnun bo‘lamiz.
-
     </p>
 
-
     <div class="divider"></div>
-
 
     <div class="date">
       15 SENTYABR 2026
     </div>
 
-
     <div class="time">
       SOAT 18:00
     </div>
 
-
   </div>
-
 
 
   <!-- TAKLIF -->
@@ -592,22 +438,13 @@
       Sizni kutamiz
     </h2>
 
-
     <p class="text">
-
-      Aziz mehmonimiz!
-
-      Sizni baxtimizga
-      guvoh bo‘lish va
-      quvonchli kunimizni
-      biz bilan birga
-      nishonlash uchun
-      samimiy taklif qilamiz.
-
+      Aziz mehmonimiz! Sizni baxtimizga guvoh bo‘lish
+      va quvonchli kunimizni biz bilan birga
+      nishonlash uchun samimiy taklif qilamiz.
     </p>
 
   </section>
-
 
 
   <!-- COUNTDOWN -->
@@ -618,66 +455,66 @@
       To‘yimizgacha
     </h2>
 
-
     <div class="countdown">
 
-
       <div class="time-box">
-
-        <strong id="days">
-          00
-        </strong>
-
-        <span>
-          Kun
-        </span>
-
+        <strong id="days">00</strong>
+        <span>Kun</span>
       </div>
 
-
       <div class="time-box">
-
-        <strong id="hours">
-          00
-        </strong>
-
-        <span>
-          Soat
-        </span>
-
+        <strong id="hours">00</strong>
+        <span>Soat</span>
       </div>
 
-
       <div class="time-box">
-
-        <strong id="minutes">
-          00
-        </strong>
-
-        <span>
-          Daqiqa
-        </span>
-
+        <strong id="minutes">00</strong>
+        <span>Daqiqa</span>
       </div>
 
-
       <div class="time-box">
-
-        <strong id="seconds">
-          00
-        </strong>
-
-        <span>
-          Soniya
-        </span>
-
+        <strong id="seconds">00</strong>
+        <span>Soniya</span>
       </div>
-
 
     </div>
 
   </section>
 
+
+  <!-- GALEREYA -->
+
+  <section>
+
+    <h2 class="section-title">
+      Bizning lahzalarimiz
+    </h2>
+
+    <p class="text">
+      Bizning eng go‘zal va unutilmas lahzalarimiz.
+    </p>
+
+    <div class="gallery">
+
+      <div class="gallery-item">
+        <img src="gallery1.jpg" alt="Bizning lahzamiz">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery2.jpg" alt="Bizning lahzamiz">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery3.jpg" alt="Bizning lahzamiz">
+      </div>
+
+      <div class="gallery-item">
+        <img src="gallery4.jpg" alt="Bizning lahzamiz">
+      </div>
+
+    </div>
+
+  </section>
 
 
   <!-- MANZIL -->
@@ -688,18 +525,15 @@
       Manzil
     </h2>
 
-
     <div class="location">
 
       <h3>
         Zarafshon to‘yxonasi
       </h3>
 
-
       <p class="text">
         Buxoro viloyati
       </p>
-
 
       <a
         class="map-button"
@@ -710,11 +544,9 @@
 
       </a>
 
-
     </div>
 
   </section>
-
 
 
   <!-- YAKUNIY -->
@@ -725,64 +557,53 @@
       Sevgi bilan
     </h2>
 
-
     <p class="text">
-
-      Sizning tashrifingiz
-      biz uchun eng katta
+      Sizning tashrifingiz biz uchun eng katta
       sovg‘alardan biridir.
-
     </p>
 
   </section>
 
 
-
   <footer>
-
-    Ruxshona
-    &
-    Azizbek
-
+    Ruxshona & Azizbek
   </footer>
-
 
 
   <!-- MUSIQA -->
 
-  <button
-    class="music-button"
-    onclick="toggleMusic()">
-
+  <button class="music-button" onclick="toggleMusic()">
     ♪
-
   </button>
 
-
-  <audio
-    id="music"
-    loop>
-
-    <source
-      src=""
-      type="audio/mpeg">
-
+  <audio id="music" loop>
+    <source src="" type="audio/mpeg">
   </audio>
 
 
+  <!-- KATTA RASM OCHILADIGAN OYNA -->
 
-  <!-- JAVASCRIPT -->
+  <div class="lightbox" id="lightbox">
+
+    <span
+      class="close"
+      onclick="closeLightbox()">
+
+      ×
+
+    </span>
+
+    <img id="lightbox-img" src="" alt="Katta rasm">
+
+  </div>
+
 
   <script>
-
 
     /* TO'Y SANASI */
 
     const weddingDate =
-      new Date(
-        "September 15, 2026 18:00:00"
-      ).getTime();
-
+      new Date("September 15, 2026 18:00:00").getTime();
 
 
     /* COUNTDOWN */
@@ -792,7 +613,6 @@
       const now =
         new Date().getTime();
 
-
       const difference =
         weddingDate - now;
 
@@ -800,15 +620,11 @@
       if (difference <= 0) {
 
         document.getElementById("days").innerText = "00";
-
         document.getElementById("hours").innerText = "00";
-
         document.getElementById("minutes").innerText = "00";
-
         document.getElementById("seconds").innerText = "00";
 
         return;
-
       }
 
 
@@ -852,44 +668,27 @@
         );
 
 
-      document
-        .getElementById("days")
-        .innerText =
-        String(days)
-        .padStart(2, "0");
+      document.getElementById("days").innerText =
+        String(days).padStart(2, "0");
 
+      document.getElementById("hours").innerText =
+        String(hours).padStart(2, "0");
 
-      document
-        .getElementById("hours")
-        .innerText =
-        String(hours)
-        .padStart(2, "0");
+      document.getElementById("minutes").innerText =
+        String(minutes).padStart(2, "0");
 
-
-      document
-        .getElementById("minutes")
-        .innerText =
-        String(minutes)
-        .padStart(2, "0");
-
-
-      document
-        .getElementById("seconds")
-        .innerText =
-        String(seconds)
-        .padStart(2, "0");
+      document.getElementById("seconds").innerText =
+        String(seconds).padStart(2, "0");
 
     }
 
 
     updateCountdown();
 
-
     setInterval(
       updateCountdown,
       1000
     );
-
 
 
     /* MUSIQA */
@@ -899,19 +698,13 @@
       const music =
         document.getElementById("music");
 
-
       if (music.paused) {
-
         music.play();
-
       } else {
-
         music.pause();
-
       }
 
     }
-
 
 
     /* SCROLL ANIMATSIYASI */
@@ -926,23 +719,17 @@
         (section) => {
 
           const sectionTop =
-            section
-            .getBoundingClientRect()
-            .top;
-
+            section.getBoundingClientRect().top;
 
           const screenHeight =
             window.innerHeight;
-
 
           if (
             sectionTop <
             screenHeight - 80
           ) {
 
-            section
-            .classList
-            .add("show");
+            section.classList.add("show");
 
           }
 
@@ -954,16 +741,73 @@
 
     showSections();
 
-
     window.addEventListener(
       "scroll",
       showSections
     );
 
 
+    /* RASMNI KATTALASHTIRISH */
+
+    const galleryImages =
+      document.querySelectorAll(
+        ".gallery-item img"
+      );
+
+
+    galleryImages.forEach(
+      (image) => {
+
+        image.addEventListener(
+          "click",
+          function () {
+
+            document
+              .getElementById("lightbox-img")
+              .src =
+              this.src;
+
+
+            document
+              .getElementById("lightbox")
+              .classList
+              .add("show");
+
+          }
+        );
+
+      }
+    );
+
+
+    function closeLightbox() {
+
+      document
+        .getElementById("lightbox")
+        .classList
+        .remove("show");
+
+    }
+
+
+    document
+      .getElementById("lightbox")
+      .addEventListener(
+        "click",
+        function (event) {
+
+          if (
+            event.target === this
+          ) {
+
+            closeLightbox();
+
+          }
+
+        }
+      );
+
   </script>
 
-
 </body>
-
-</html>
+  </html>
