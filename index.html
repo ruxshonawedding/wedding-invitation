@@ -11,59 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
-/* NAFIS DEKOR */
 
-.hero {
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before,
-.hero::after {
-  content: "✿";
-  position: absolute;
-  font-size: 90px;
-  color: rgba(184, 154, 106, 0.16);
-  font-family: serif;
-  pointer-events: none;
-}
-
-.hero::before {
-  top: 20px;
-  left: -15px;
-  transform: rotate(-20deg);
-}
-
-.hero::after {
-  right: -15px;
-  bottom: 20px;
-  transform: rotate(20deg);
-}
-
-
-/* BO'LIMLAR UCHUN GUL BEZAGI */
-
-.section-title::after {
-  content: "❀";
-  display: block;
-  margin-top: 12px;
-  font-size: 18px;
-  color: #b89a6a;
-}
-
-
-/* SCROLL QILINGANDA PAYDO BO'LISH */
-
-section {
-  opacity: 0;
-  transform: translateY(35px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-section.show {
-  opacity: 1;
-  transform: translateY(0);
-}
   <style>
 
     * {
@@ -91,16 +39,73 @@ section.show {
     .hero {
       min-height: 100vh;
       padding: 45px 20px 60px;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+      position: relative;
+      overflow: hidden;
 
       background:
         linear-gradient(
           rgba(247,243,237,0.88),
           rgba(247,243,237,0.97)
         );
+    }
+
+
+    /* =========================
+       GUL DEKORLARI
+    ========================= */
+
+    .hero::before,
+    .hero::after {
+      content: "✿";
+
+      position: absolute;
+
+      font-size: 90px;
+
+      color:
+        rgba(184, 154, 106, 0.16);
+
+      font-family: serif;
+
+      pointer-events: none;
+
+      z-index: 0;
+    }
+
+
+    .hero::before {
+      top: 20px;
+      left: -15px;
+
+      transform:
+        rotate(-20deg);
+    }
+
+
+    .hero::after {
+      right: -15px;
+      bottom: 20px;
+
+      transform:
+        rotate(20deg);
+    }
+
+
+    .hero-image,
+    .small-title,
+    .names,
+    .invitation,
+    .divider,
+    .date,
+    .time {
+      position: relative;
+      z-index: 1;
     }
 
 
@@ -130,16 +135,13 @@ section.show {
 
 
     .hero-image img {
-
       width: 100%;
       height: 100%;
 
       object-fit: cover;
-
       object-position: center;
 
       display: block;
-
     }
 
 
@@ -148,70 +150,56 @@ section.show {
     ========================= */
 
     .small-title {
-
       font-size: 12px;
-
       letter-spacing: 4px;
-
       text-transform: uppercase;
 
       margin-bottom: 25px;
 
       animation:
         textAppear 2s ease;
-
     }
 
 
     .names {
-
       font-family:
         "Cormorant Garamond",
         serif;
 
       font-size: 64px;
-
       line-height: 0.95;
 
       font-weight: 500;
 
       animation:
         textAppear 2.2s ease;
-
     }
 
 
     .and {
-
       font-size: 30px;
-
       font-style: italic;
 
       margin: 15px 0;
-
     }
 
 
     .invitation {
-
       max-width: 430px;
 
       margin-top: 35px;
 
       font-size: 14px;
-
       line-height: 1.9;
 
       font-weight: 300;
 
       animation:
         textAppear 2.5s ease;
-
     }
 
 
     .date {
-
       margin-top: 35px;
 
       font-family:
@@ -219,53 +207,59 @@ section.show {
         serif;
 
       font-size: 28px;
-
       letter-spacing: 2px;
-
     }
 
 
     .time {
-
       margin-top: 8px;
 
       font-size: 13px;
-
       letter-spacing: 3px;
-
     }
 
 
     .divider {
-
       width: 60px;
-
       height: 1px;
 
       background: #b89a6a;
 
       margin: 35px auto;
-
     }
 
 
     /* =========================
-       UMUMIY BO'LIMLAR
+       BO'LIMLAR
     ========================= */
 
     section {
-
       padding: 90px 25px;
 
       max-width: 700px;
 
       margin: auto;
 
+      opacity: 0;
+
+      transform:
+        translateY(35px);
+
+      transition:
+        opacity 1s ease,
+        transform 1s ease;
+    }
+
+
+    section.show {
+      opacity: 1;
+
+      transform:
+        translateY(0);
     }
 
 
     .section-title {
-
       font-family:
         "Cormorant Garamond",
         serif;
@@ -275,18 +269,30 @@ section.show {
       font-weight: 500;
 
       margin-bottom: 25px;
+    }
 
+
+    /* Sarlavha ostidagi gul */
+
+    .section-title::after {
+      content: "❀";
+
+      display: block;
+
+      margin-top: 12px;
+
+      font-size: 18px;
+
+      color: #b89a6a;
     }
 
 
     .text {
-
       font-size: 14px;
 
       line-height: 2;
 
       font-weight: 300;
-
     }
 
 
@@ -295,7 +301,6 @@ section.show {
     ========================= */
 
     .countdown {
-
       display: flex;
 
       justify-content: center;
@@ -305,12 +310,10 @@ section.show {
       margin-top: 35px;
 
       flex-wrap: wrap;
-
     }
 
 
     .time-box {
-
       width: 75px;
 
       padding: 18px 5px;
@@ -320,12 +323,10 @@ section.show {
 
       background:
         #fbf9f5;
-
     }
 
 
     .time-box strong {
-
       display: block;
 
       font-family:
@@ -335,18 +336,15 @@ section.show {
       font-size: 30px;
 
       font-weight: 500;
-
     }
 
 
     .time-box span {
-
       font-size: 9px;
 
       letter-spacing: 1px;
 
       text-transform: uppercase;
-
     }
 
 
@@ -355,7 +353,6 @@ section.show {
     ========================= */
 
     .location {
-
       margin-top: 30px;
 
       padding: 30px 20px;
@@ -365,12 +362,10 @@ section.show {
 
       background:
         #fbf9f5;
-
     }
 
 
     .location h3 {
-
       font-family:
         "Cormorant Garamond",
         serif;
@@ -380,13 +375,11 @@ section.show {
       font-weight: 500;
 
       margin-bottom: 12px;
-
     }
 
 
     .map-button,
     .music-button {
-
       display: inline-block;
 
       margin-top: 22px;
@@ -413,26 +406,22 @@ section.show {
 
       cursor:
         pointer;
-
     }
 
 
     /* =========================
-       MUSIQA TUGMASI
+       MUSIQA
     ========================= */
 
     .music-button {
-
       position: fixed;
 
       right: 20px;
-
       bottom: 20px;
 
       border-radius: 50%;
 
       width: 52px;
-
       height: 52px;
 
       padding: 0;
@@ -441,7 +430,6 @@ section.show {
 
       background:
         #f7f3ed;
-
     }
 
 
@@ -450,7 +438,6 @@ section.show {
     ========================= */
 
     footer {
-
       padding: 60px 20px;
 
       font-family:
@@ -458,59 +445,48 @@ section.show {
         serif;
 
       font-size: 25px;
-
     }
 
 
     /* =========================
-       ANIMATSIYALAR
+       ANIMATSIYA
     ========================= */
 
     @keyframes imageAppear {
 
       from {
-
         opacity: 0;
 
         transform:
           scale(0.94)
           translateY(20px);
-
       }
 
       to {
-
         opacity: 1;
 
         transform:
           scale(1)
           translateY(0);
-
       }
-
     }
 
 
     @keyframes textAppear {
 
       from {
-
         opacity: 0;
 
         transform:
           translateY(25px);
-
       }
 
       to {
-
         opacity: 1;
 
         transform:
           translateY(0);
-
       }
-
     }
 
 
@@ -521,28 +497,20 @@ section.show {
     @media (max-width: 500px) {
 
       .hero {
-
         padding:
-          35px 20px
-          55px;
-
+          35px 20px 55px;
       }
 
 
       .hero-image {
-
         height: 470px;
 
         max-width: 340px;
-
       }
 
 
       .names {
-
-        font-size:
-          56px;
-
+        font-size: 56px;
       }
 
     }
@@ -571,16 +539,10 @@ section.show {
     </div>
 
 
-    <!-- Sarlavha -->
-
     <div class="small-title">
-
       Bizning to‘yimiz
-
     </div>
 
-
-    <!-- ISMLAR -->
 
     <div class="names">
 
@@ -595,8 +557,6 @@ section.show {
     </div>
 
 
-    <!-- TAKLIF -->
-
     <p class="invitation">
 
       Hayotimizdagi eng go‘zal
@@ -610,19 +570,13 @@ section.show {
     <div class="divider"></div>
 
 
-    <!-- SANA -->
-
     <div class="date">
-
       15 SENTYABR 2026
-
     </div>
 
 
     <div class="time">
-
       SOAT 18:00
-
     </div>
 
 
@@ -635,9 +589,7 @@ section.show {
   <section>
 
     <h2 class="section-title">
-
       Sizni kutamiz
-
     </h2>
 
 
@@ -663,9 +615,7 @@ section.show {
   <section>
 
     <h2 class="section-title">
-
       To‘yimizgacha
-
     </h2>
 
 
@@ -735,35 +685,25 @@ section.show {
   <section>
 
     <h2 class="section-title">
-
       Manzil
-
     </h2>
 
 
     <div class="location">
 
-
       <h3>
-
         Zarafshon to‘yxonasi
-
       </h3>
 
 
       <p class="text">
-
         Buxoro viloyati
-
       </p>
 
 
       <a
-
         class="map-button"
-
         href="https://www.google.com/maps"
-
         target="_blank">
 
         Xaritada ko‘rish
@@ -777,14 +717,12 @@ section.show {
 
 
 
-  <!-- YAKUNIY YOZUV -->
+  <!-- YAKUNIY -->
 
   <section>
 
     <h2 class="section-title">
-
       Sevgi bilan
-
     </h2>
 
 
@@ -810,7 +748,7 @@ section.show {
 
 
 
-  <!-- MUSIQA TUGMASI -->
+  <!-- MUSIQA -->
 
   <button
     class="music-button"
@@ -820,9 +758,6 @@ section.show {
 
   </button>
 
-
-
-  <!-- MUSIQA -->
 
   <audio
     id="music"
@@ -837,32 +772,11 @@ section.show {
 
 
   <!-- JAVASCRIPT -->
-const sections = document.querySelectorAll("section");
 
-function showSections() {
-  sections.forEach((section) => {
-
-    const sectionTop =
-      section.getBoundingClientRect().top;
-
-    const screenHeight =
-      window.innerHeight;
-
-    if (sectionTop < screenHeight - 80) {
-      section.classList.add("show");
-    }
-
-  });
-}
-
-showSections();
-
-window.addEventListener(
-  "scroll",
-  showSections
-);
   <script>
 
+
+    /* TO'Y SANASI */
 
     const weddingDate =
       new Date(
@@ -871,8 +785,9 @@ window.addEventListener(
 
 
 
-    function updateCountdown() {
+    /* COUNTDOWN */
 
+    function updateCountdown() {
 
       const now =
         new Date().getTime();
@@ -882,38 +797,19 @@ window.addEventListener(
         weddingDate - now;
 
 
-
       if (difference <= 0) {
 
+        document.getElementById("days").innerText = "00";
 
-        document
-          .getElementById("days")
-          .innerText =
-          "00";
+        document.getElementById("hours").innerText = "00";
 
+        document.getElementById("minutes").innerText = "00";
 
-        document
-          .getElementById("hours")
-          .innerText =
-          "00";
-
-
-        document
-          .getElementById("minutes")
-          .innerText =
-          "00";
-
-
-        document
-          .getElementById("seconds")
-          .innerText =
-          "00";
-
+        document.getElementById("seconds").innerText = "00";
 
         return;
 
       }
-
 
 
       const days =
@@ -923,50 +819,37 @@ window.addEventListener(
         );
 
 
-
       const hours =
         Math.floor(
-
           (
             difference %
             (1000 * 60 * 60 * 24)
           )
-
           /
           (1000 * 60 * 60)
-
         );
-
 
 
       const minutes =
         Math.floor(
-
           (
             difference %
             (1000 * 60 * 60)
           )
-
           /
           (1000 * 60)
-
         );
-
 
 
       const seconds =
         Math.floor(
-
           (
             difference %
             (1000 * 60)
           )
-
           /
           1000
-
         );
-
 
 
       document
@@ -976,13 +859,11 @@ window.addEventListener(
         .padStart(2, "0");
 
 
-
       document
         .getElementById("hours")
         .innerText =
         String(hours)
         .padStart(2, "0");
-
 
 
       document
@@ -992,16 +873,13 @@ window.addEventListener(
         .padStart(2, "0");
 
 
-
       document
         .getElementById("seconds")
         .innerText =
         String(seconds)
         .padStart(2, "0");
 
-
     }
-
 
 
     updateCountdown();
@@ -1014,13 +892,12 @@ window.addEventListener(
 
 
 
+    /* MUSIQA */
+
     function toggleMusic() {
 
-
       const music =
-        document
-        .getElementById("music");
-
+        document.getElementById("music");
 
 
       if (music.paused) {
@@ -1033,8 +910,55 @@ window.addEventListener(
 
       }
 
+    }
+
+
+
+    /* SCROLL ANIMATSIYASI */
+
+    const sections =
+      document.querySelectorAll("section");
+
+
+    function showSections() {
+
+      sections.forEach(
+        (section) => {
+
+          const sectionTop =
+            section
+            .getBoundingClientRect()
+            .top;
+
+
+          const screenHeight =
+            window.innerHeight;
+
+
+          if (
+            sectionTop <
+            screenHeight - 80
+          ) {
+
+            section
+            .classList
+            .add("show");
+
+          }
+
+        }
+      );
 
     }
+
+
+    showSections();
+
+
+    window.addEventListener(
+      "scroll",
+      showSections
+    );
 
 
   </script>
@@ -1042,4 +966,4 @@ window.addEventListener(
 
 </body>
 
-  </html>
+</html>
