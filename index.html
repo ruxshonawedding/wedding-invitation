@@ -11,7 +11,59 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+/* NAFIS DEKOR */
 
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+  content: "✿";
+  position: absolute;
+  font-size: 90px;
+  color: rgba(184, 154, 106, 0.16);
+  font-family: serif;
+  pointer-events: none;
+}
+
+.hero::before {
+  top: 20px;
+  left: -15px;
+  transform: rotate(-20deg);
+}
+
+.hero::after {
+  right: -15px;
+  bottom: 20px;
+  transform: rotate(20deg);
+}
+
+
+/* BO'LIMLAR UCHUN GUL BEZAGI */
+
+.section-title::after {
+  content: "❀";
+  display: block;
+  margin-top: 12px;
+  font-size: 18px;
+  color: #b89a6a;
+}
+
+
+/* SCROLL QILINGANDA PAYDO BO'LISH */
+
+section {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
   <style>
 
     * {
@@ -785,7 +837,30 @@
 
 
   <!-- JAVASCRIPT -->
+const sections = document.querySelectorAll("section");
 
+function showSections() {
+  sections.forEach((section) => {
+
+    const sectionTop =
+      section.getBoundingClientRect().top;
+
+    const screenHeight =
+      window.innerHeight;
+
+    if (sectionTop < screenHeight - 80) {
+      section.classList.add("show");
+    }
+
+  });
+}
+
+showSections();
+
+window.addEventListener(
+  "scroll",
+  showSections
+);
   <script>
 
 
