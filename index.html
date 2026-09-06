@@ -36,54 +36,403 @@
 
 
     /* =========================
+       TAKLIFNOMA KONVERTI
+    ========================= */
+
+    .invitation-cover {
+      position: fixed;
+      inset: 0;
+
+      width: 100%;
+      height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at top,
+          #fffdf8,
+          #eee2d3
+        );
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      z-index: 9999;
+
+      transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
+    }
+
+
+    .invitation-cover.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+
+    .cover-content {
+      width: 100%;
+      padding: 25px;
+
+      text-align: center;
+    }
+
+
+    .cover-small-title {
+      font-size: 11px;
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      color: #806c50;
+
+      margin-bottom: 30px;
+
+      animation:
+        coverAppear
+        1.5s ease;
+    }
+
+
+    /* =========================
+       PREMIUM KONVERT
+    ========================= */
+
+    .envelope {
+
+      width: 330px;
+      height: 220px;
+
+      max-width: 90vw;
+
+      position: relative;
+
+      margin: auto;
+
+      cursor: pointer;
+
+      perspective: 1000px;
+
+      filter:
+        drop-shadow(
+          0 20px 30px
+          rgba(0,0,0,0.18)
+        );
+
+      animation:
+        envelopeFloat
+        3s ease-in-out infinite;
+    }
+
+
+    .envelope-body {
+
+      position: absolute;
+
+      inset: 0;
+
+      border-radius: 10px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #d9c4a4,
+          #b89a6a
+        );
+
+      overflow: hidden;
+
+      z-index: 1;
+    }
+
+
+    /* KONVERT PASTKI BURCHAKLARI */
+
+    .envelope-body::before {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      bottom: 0;
+
+      width: 0;
+      height: 0;
+
+      border-left:
+        165px solid #c6a982;
+
+      border-top:
+        110px solid transparent;
+
+      border-bottom:
+        110px solid transparent;
+
+    }
+
+
+    .envelope-body::after {
+
+      content: "";
+
+      position: absolute;
+
+      right: 0;
+      bottom: 0;
+
+      width: 0;
+      height: 0;
+
+      border-right:
+        165px solid #cfb48e;
+
+      border-top:
+        110px solid transparent;
+
+      border-bottom:
+        110px solid transparent;
+
+    }
+
+
+    /* KONVERT QOPQOG'I */
+
+    .envelope-flap {
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 0;
+      height: 0;
+
+      border-left:
+        165px solid transparent;
+
+      border-right:
+        165px solid transparent;
+
+      border-top:
+        125px solid #a88658;
+
+      transform-origin:
+        top center;
+
+      transition:
+        transform 1s ease;
+
+      z-index: 5;
+
+    }
+
+
+    .envelope.open .envelope-flap {
+
+      transform:
+        rotateX(180deg);
+
+      z-index: 0;
+
+    }
+
+
+    /* =========================
+       ICHIDAGI TAKLIFNOMA
+    ========================= */
+
+    .envelope-letter {
+
+      position: absolute;
+
+      width: 84%;
+      height: 175px;
+
+      left: 8%;
+
+      bottom: 15px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fffdf9,
+          #f4eee5
+        );
+
+      border-radius: 8px;
+
+      padding: 20px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+
+      box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.12);
+
+      z-index: 3;
+
+      transition:
+        transform 1.4s ease;
+
+    }
+
+
+    .envelope.open .envelope-letter {
+
+      transform:
+        translateY(-175px);
+
+      z-index: 6;
+
+    }
+
+
+    .letter-flower {
+
+      font-size: 18px;
+
+      color: #b89a6a;
+
+      margin-bottom: 10px;
+
+    }
+
+
+    .letter-names {
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size: 32px;
+
+      font-weight: 500;
+
+      line-height: 0.95;
+
+    }
+
+
+    .letter-and {
+
+      color: #b89a6a;
+
+      font-size: 20px;
+
+      margin: 5px 0;
+
+    }
+
+
+    .letter-date {
+
+      margin-top: 12px;
+
+      font-size: 9px;
+
+      letter-spacing: 2px;
+
+      color: #806c50;
+
+    }
+
+
+    .open-text {
+
+      margin-top: 40px;
+
+      font-size: 11px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      color: #806c50;
+
+      animation:
+        textPulse
+        2s infinite;
+
+    }
+
+
+    /* =========================
        BOSH SAHIFA
     ========================= */
 
     .hero {
+
       min-height: 100vh;
+
       padding: 35px 20px 60px;
 
       display: flex;
+
       flex-direction: column;
+
       justify-content: center;
+
       align-items: center;
 
       position: relative;
+
       overflow: hidden;
+
     }
 
 
-    /* GUL DEKORLARI */
-
     .hero::before,
     .hero::after {
+
       content: "✿";
 
       position: absolute;
 
       font-size: 100px;
 
-      color: rgba(184, 154, 106, 0.16);
+      color:
+        rgba(
+          184,
+          154,
+          106,
+          0.16
+        );
 
       pointer-events: none;
 
       z-index: 0;
+
     }
 
 
     .hero::before {
+
       top: 20px;
       left: -20px;
 
-      transform: rotate(-20deg);
+      transform:
+        rotate(-20deg);
+
     }
 
 
     .hero::after {
+
       right: -20px;
       bottom: 20px;
 
-      transform: rotate(20deg);
+      transform:
+        rotate(20deg);
+
     }
 
 
@@ -94,8 +443,11 @@
     .divider,
     .date,
     .time {
+
       position: relative;
+
       z-index: 1;
+
     }
 
 
@@ -104,7 +456,9 @@
     ========================= */
 
     .hero-image {
+
       width: 100%;
+
       max-width: 380px;
 
       height: 500px;
@@ -123,10 +477,12 @@
       animation:
         imageAppear
         1.8s ease;
+
     }
 
 
     .hero-image img {
+
       width: 100%;
       height: 100%;
 
@@ -135,6 +491,7 @@
       object-position: center;
 
       display: block;
+
     }
 
 
@@ -143,6 +500,7 @@
     ========================= */
 
     .small-title {
+
       font-size: 12px;
 
       letter-spacing: 4px;
@@ -154,10 +512,12 @@
       animation:
         textAppear
         2s ease;
+
     }
 
 
     .names {
+
       font-family:
         "Cormorant Garamond",
         serif;
@@ -171,10 +531,12 @@
       animation:
         textAppear
         2.2s ease;
+
     }
 
 
     .and {
+
       font-size: 30px;
 
       font-style: italic;
@@ -182,10 +544,12 @@
       margin: 15px 0;
 
       color: #b89a6a;
+
     }
 
 
     .invitation {
+
       max-width: 430px;
 
       margin-top: 35px;
@@ -199,10 +563,12 @@
       animation:
         textAppear
         2.5s ease;
+
     }
 
 
     .divider {
+
       width: 60px;
 
       height: 1px;
@@ -210,10 +576,12 @@
       background: #b89a6a;
 
       margin: 35px auto;
+
     }
 
 
     .date {
+
       margin-top: 10px;
 
       font-family:
@@ -223,15 +591,18 @@
       font-size: 29px;
 
       letter-spacing: 2px;
+
     }
 
 
     .time {
+
       margin-top: 10px;
 
       font-size: 12px;
 
       letter-spacing: 3px;
+
     }
 
 
@@ -240,6 +611,7 @@
     ========================= */
 
     section {
+
       padding: 85px 20px;
 
       max-width: 700px;
@@ -254,18 +626,22 @@
       transition:
         opacity 1s ease,
         transform 1s ease;
+
     }
 
 
     section.show {
+
       opacity: 1;
 
       transform:
         translateY(0);
+
     }
 
 
     .section-title {
+
       font-family:
         "Cormorant Garamond",
         serif;
@@ -275,10 +651,12 @@
       font-weight: 500;
 
       margin-bottom: 25px;
+
     }
 
 
     .section-title::after {
+
       content: "❀";
 
       display: block;
@@ -288,15 +666,18 @@
       font-size: 18px;
 
       color: #b89a6a;
+
     }
 
 
     .text {
+
       font-size: 14px;
 
       line-height: 2;
 
       font-weight: 300;
+
     }
 
 
@@ -305,6 +686,7 @@
     ========================= */
 
     .countdown {
+
       display: flex;
 
       justify-content: center;
@@ -314,10 +696,12 @@
       margin-top: 35px;
 
       flex-wrap: wrap;
+
     }
 
 
     .time-box {
+
       width: 75px;
 
       padding: 18px 5px;
@@ -331,10 +715,12 @@
       box-shadow:
         0 8px 20px
         rgba(0,0,0,0.04);
+
     }
 
 
     .time-box strong {
+
       display: block;
 
       font-family:
@@ -344,15 +730,18 @@
       font-size: 30px;
 
       font-weight: 500;
+
     }
 
 
     .time-box span {
+
       font-size: 9px;
 
       letter-spacing: 1px;
 
       text-transform: uppercase;
+
     }
 
 
@@ -361,6 +750,7 @@
     ========================= */
 
     .gallery {
+
       display: grid;
 
       grid-template-columns:
@@ -369,10 +759,12 @@
       gap: 14px;
 
       margin-top: 35px;
+
     }
 
 
     .gallery-item {
+
       height: 250px;
 
       overflow: hidden;
@@ -384,20 +776,24 @@
       box-shadow:
         0 10px 25px
         rgba(0,0,0,0.12);
+
     }
 
 
     .gallery-item:first-child {
+
       grid-column: span 2;
 
       height: 420px;
 
       border-radius:
         180px 180px 25px 25px;
+
     }
 
 
     .gallery-item img {
+
       width: 100%;
       height: 100%;
 
@@ -408,12 +804,15 @@
       transition:
         transform
         0.5s ease;
+
     }
 
 
     .gallery-item:hover img {
+
       transform:
         scale(1.08);
+
     }
 
 
@@ -422,6 +821,7 @@
     ========================= */
 
     .lightbox {
+
       display: none;
 
       position: fixed;
@@ -438,24 +838,30 @@
       align-items: center;
 
       padding: 20px;
+
     }
 
 
     .lightbox.show {
+
       display: flex;
+
     }
 
 
     .lightbox img {
+
       max-width: 100%;
 
       max-height: 90vh;
 
       border-radius: 12px;
+
     }
 
 
     .close {
+
       position: absolute;
 
       top: 20px;
@@ -467,6 +873,7 @@
       font-size: 40px;
 
       cursor: pointer;
+
     }
 
 
@@ -475,6 +882,7 @@
     ========================= */
 
     .venue-card {
+
       margin-top: 35px;
 
       background:
@@ -488,10 +896,12 @@
       box-shadow:
         0 15px 35px
         rgba(0,0,0,0.06);
+
     }
 
 
     .venue-icon {
+
       width: 60px;
 
       height: 60px;
@@ -512,11 +922,11 @@
 
       font-size: 25px;
 
-      color: #b89a6a;
     }
 
 
     .venue-name {
+
       font-family:
         "Cormorant Garamond",
         serif;
@@ -526,10 +936,12 @@
       font-weight: 500;
 
       margin-bottom: 10px;
+
     }
 
 
     .venue-address {
+
       font-size: 13px;
 
       line-height: 1.9;
@@ -537,6 +949,7 @@
       font-weight: 300;
 
       margin-bottom: 25px;
+
     }
 
 
@@ -545,6 +958,7 @@
     ========================= */
 
     .map-container {
+
       width: 100%;
 
       height: 350px;
@@ -561,19 +975,23 @@
       box-shadow:
         0 12px 30px
         rgba(0,0,0,0.10);
+
     }
 
 
     .map-container iframe {
+
       width: 100%;
 
       height: 100%;
 
       border: 0;
+
     }
 
 
     .map-button {
+
       display: inline-block;
 
       margin-top: 25px;
@@ -600,13 +1018,16 @@
 
       transition:
         0.3s ease;
+
     }
 
 
     .map-button:hover {
+
       background: transparent;
 
       color: #302a25;
+
     }
 
 
@@ -615,6 +1036,7 @@
     ========================= */
 
     .music-button {
+
       position: fixed;
 
       right: 20px;
@@ -645,13 +1067,16 @@
       box-shadow:
         0 8px 20px
         rgba(0,0,0,0.12);
+
     }
 
 
     .music-button.playing {
+
       animation:
         musicPulse
         1.5s infinite;
+
     }
 
 
@@ -660,6 +1085,7 @@
     ========================= */
 
     footer {
+
       padding:
         70px 20px;
 
@@ -671,30 +1097,95 @@
 
       background:
         rgba(184,154,106,0.08);
+
     }
 
 
     /* =========================
-       ANIMATSIYA
+       ANIMATSIYALAR
     ========================= */
+
+    @keyframes envelopeFloat {
+
+      0%,
+      100% {
+
+        transform:
+          translateY(0);
+
+      }
+
+      50% {
+
+        transform:
+          translateY(-12px);
+
+      }
+
+    }
+
+
+    @keyframes textPulse {
+
+      0%,
+      100% {
+
+        opacity: 0.5;
+
+      }
+
+      50% {
+
+        opacity: 1;
+
+      }
+
+    }
+
+
+    @keyframes coverAppear {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          scale(0.95);
+
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          scale(1);
+
+      }
+
+    }
+
 
     @keyframes imageAppear {
 
       from {
+
         opacity: 0;
 
         transform:
           scale(0.94)
           translateY(20px);
+
       }
 
-
       to {
+
         opacity: 1;
 
         transform:
           scale(1)
           translateY(0);
+
       }
 
     }
@@ -703,18 +1194,21 @@
     @keyframes textAppear {
 
       from {
+
         opacity: 0;
 
         transform:
           translateY(25px);
+
       }
 
-
       to {
+
         opacity: 1;
 
         transform:
           translateY(0);
+
       }
 
     }
@@ -723,20 +1217,24 @@
     @keyframes musicPulse {
 
       0% {
+
         transform:
           scale(1);
-      }
 
+      }
 
       50% {
+
         transform:
           scale(1.08);
+
       }
 
-
       100% {
+
         transform:
           scale(1);
+
       }
 
     }
@@ -748,30 +1246,59 @@
 
     @media (max-width: 500px) {
 
+      .envelope {
+
+        width: 300px;
+        height: 205px;
+
+      }
+
+
+      .envelope-flap {
+
+        border-left-width:
+          150px;
+
+        border-right-width:
+          150px;
+
+      }
+
+
       .hero-image {
+
         height: 470px;
 
         max-width: 340px;
+
       }
 
 
       .names {
+
         font-size: 56px;
+
       }
 
 
       .gallery-item {
+
         height: 210px;
+
       }
 
 
       .gallery-item:first-child {
+
         height: 380px;
+
       }
 
 
       .map-container {
+
         height: 300px;
+
       }
 
     }
@@ -782,6 +1309,98 @@
 
 
 <body>
+
+
+  <!-- =====================
+       TAKLIFNOMA KONVERTI
+  ====================== -->
+
+  <div
+    class="invitation-cover"
+    id="invitationCover">
+
+
+    <div class="cover-content">
+
+
+      <div class="cover-small-title">
+
+        Siz uchun maxsus taklifnoma
+
+      </div>
+
+
+      <div
+        class="envelope"
+        id="envelope"
+        onclick="openInvitation()">
+
+
+        <div
+          class="envelope-body">
+        </div>
+
+
+        <div
+          class="envelope-flap">
+        </div>
+
+
+        <div
+          class="envelope-letter">
+
+
+          <div
+            class="letter-flower">
+
+            ❀
+
+          </div>
+
+
+          <div
+            class="letter-names">
+
+            Ruxshona
+
+            <div
+              class="letter-and">
+
+              &
+
+            </div>
+
+            Azizbek
+
+          </div>
+
+
+          <div
+            class="letter-date">
+
+            15 SENTYABR 2026
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+      <div class="open-text">
+
+        Taklifnomani ochish uchun bosing
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
 
 
   <!-- =====================
@@ -801,7 +1420,9 @@
 
 
     <div class="small-title">
+
       Bizning to‘yimiz
+
     </div>
 
 
@@ -810,7 +1431,9 @@
       Ruxshona
 
       <div class="and">
+
         &
+
       </div>
 
       Azizbek
@@ -832,12 +1455,16 @@
 
 
     <div class="date">
+
       15 SENTYABR 2026
+
     </div>
 
 
     <div class="time">
+
       SOAT 18:00
+
     </div>
 
 
@@ -852,13 +1479,17 @@
   <section>
 
     <h2 class="section-title">
+
       Sizni kutamiz
+
     </h2>
 
 
     <p class="text">
 
       Aziz mehmonimiz!
+
+      <br><br>
 
       Sizni baxtimizga guvoh bo‘lish
       va quvonchli kunimizni
@@ -878,7 +1509,9 @@
   <section>
 
     <h2 class="section-title">
+
       To‘yimizgacha
+
     </h2>
 
 
@@ -887,52 +1520,36 @@
 
       <div class="time-box">
 
-        <strong id="days">
-          00
-        </strong>
+        <strong id="days">00</strong>
 
-        <span>
-          Kun
-        </span>
+        <span>Kun</span>
 
       </div>
 
 
       <div class="time-box">
 
-        <strong id="hours">
-          00
-        </strong>
+        <strong id="hours">00</strong>
 
-        <span>
-          Soat
-        </span>
+        <span>Soat</span>
 
       </div>
 
 
       <div class="time-box">
 
-        <strong id="minutes">
-          00
-        </strong>
+        <strong id="minutes">00</strong>
 
-        <span>
-          Daqiqa
-        </span>
+        <span>Daqiqa</span>
 
       </div>
 
 
       <div class="time-box">
 
-        <strong id="seconds">
-          00
-        </strong>
+        <strong id="seconds">00</strong>
 
-        <span>
-          Soniya
-        </span>
+        <span>Soniya</span>
 
       </div>
 
@@ -950,13 +1567,17 @@
   <section>
 
     <h2 class="section-title">
+
       Bizning lahzalarimiz
+
     </h2>
 
 
     <p class="text">
+
       Bizning eng go‘zal va
       unutilmas lahzalarimiz.
+
     </p>
 
 
@@ -1012,7 +1633,9 @@
   <section>
 
     <h2 class="section-title">
+
       Manzil
+
     </h2>
 
 
@@ -1028,25 +1651,30 @@
 
 
       <div class="venue-icon">
+
         📍
+
       </div>
 
 
       <div class="venue-name">
+
         Zarafshon Hall
+
       </div>
 
 
       <p class="venue-address">
 
-        Muhammad Iqbol ko‘chasi, 7<br>
+        Muhammad Iqbol ko‘chasi, 7
 
-        Buxoro shahri, Buxoro viloyati
+        <br>
+
+        Buxoro shahri,
+        Buxoro viloyati
 
       </p>
 
-
-      <!-- HAQIQIY XARITA -->
 
       <div class="map-container">
 
@@ -1083,7 +1711,9 @@
   <section>
 
     <h2 class="section-title">
+
       Sevgi bilan
+
     </h2>
 
 
@@ -1106,7 +1736,9 @@
   <footer>
 
     Ruxshona
+    <br>
     &
+    <br>
     Azizbek
 
   </footer>
@@ -1174,7 +1806,51 @@
   <script>
 
 
-    /* TO'Y SANASI */
+    /* =====================
+       TAKLIFNOMANI OCHISH
+    ====================== */
+
+    function openInvitation() {
+
+
+      const envelope =
+        document.getElementById(
+          "envelope"
+        );
+
+
+      const cover =
+        document.getElementById(
+          "invitationCover"
+        );
+
+
+      envelope.classList.add(
+        "open"
+      );
+
+
+      setTimeout(
+        function () {
+
+
+          cover.classList.add(
+            "hide"
+          );
+
+
+        },
+        1800
+      );
+
+
+    }
+
+
+
+    /* =====================
+       TO'Y SANASI
+    ====================== */
 
     const weddingDate =
       new Date(
@@ -1183,7 +1859,9 @@
 
 
 
-    /* COUNTDOWN */
+    /* =====================
+       COUNTDOWN
+    ====================== */
 
     function updateCountdown() {
 
@@ -1196,32 +1874,27 @@
         weddingDate - now;
 
 
-      if (
-        difference <= 0
-      ) {
-
-        document
-          .getElementById("days")
-          .innerText =
-          "00";
+      if (difference <= 0) {
 
 
-        document
-          .getElementById("hours")
-          .innerText =
-          "00";
+        document.getElementById(
+          "days"
+        ).innerText = "00";
 
 
-        document
-          .getElementById("minutes")
-          .innerText =
-          "00";
+        document.getElementById(
+          "hours"
+        ).innerText = "00";
 
 
-        document
-          .getElementById("seconds")
-          .innerText =
-          "00";
+        document.getElementById(
+          "minutes"
+        ).innerText = "00";
+
+
+        document.getElementById(
+          "seconds"
+        ).innerText = "00";
 
 
         return;
@@ -1269,30 +1942,30 @@
         );
 
 
-      document
-        .getElementById("days")
-        .innerText =
+      document.getElementById(
+        "days"
+      ).innerText =
         String(days)
         .padStart(2, "0");
 
 
-      document
-        .getElementById("hours")
-        .innerText =
+      document.getElementById(
+        "hours"
+      ).innerText =
         String(hours)
         .padStart(2, "0");
 
 
-      document
-        .getElementById("minutes")
-        .innerText =
+      document.getElementById(
+        "minutes"
+      ).innerText =
         String(minutes)
         .padStart(2, "0");
 
 
-      document
-        .getElementById("seconds")
-        .innerText =
+      document.getElementById(
+        "seconds"
+      ).innerText =
         String(seconds)
         .padStart(2, "0");
 
@@ -1310,26 +1983,26 @@
 
 
 
-    /* MUSIQA */
+    /* =====================
+       MUSIQA
+    ====================== */
 
     function toggleMusic() {
 
 
       const music =
-        document
-          .getElementById("music");
+        document.getElementById(
+          "music"
+        );
 
 
       const button =
-        document
-          .getElementById(
-            "musicButton"
-          );
+        document.getElementById(
+          "musicButton"
+        );
 
 
-      if (
-        music.paused
-      ) {
+      if (music.paused) {
 
 
         music.play();
@@ -1358,7 +2031,9 @@
 
 
 
-    /* SCROLL ANIMATSIYASI */
+    /* =====================
+       SCROLL ANIMATSIYASI
+    ====================== */
 
     const sections =
       document.querySelectorAll(
@@ -1375,8 +2050,8 @@
 
           const sectionTop =
             section
-              .getBoundingClientRect()
-              .top;
+            .getBoundingClientRect()
+            .top;
 
 
           const screenHeight =
@@ -1389,9 +2064,9 @@
           ) {
 
 
-            section
-              .classList
-              .add("show");
+            section.classList.add(
+              "show"
+            );
 
 
           }
@@ -1414,7 +2089,9 @@
 
 
 
-    /* RASMNI KATTALASHTIRISH */
+    /* =====================
+       RASMNI KATTALASHTIRISH
+    ====================== */
 
     const galleryImages =
       document.querySelectorAll(
@@ -1431,20 +2108,17 @@
           function () {
 
 
-            document
-              .getElementById(
-                "lightbox-img"
-              )
-              .src =
+            document.getElementById(
+              "lightbox-img"
+            ).src =
               this.src;
 
 
-            document
-              .getElementById(
-                "lightbox"
-              )
-              .classList
-              .add("show");
+            document.getElementById(
+              "lightbox"
+            ).classList.add(
+              "show"
+            );
 
 
           }
@@ -1459,40 +2133,37 @@
     function closeLightbox() {
 
 
-      document
-        .getElementById(
-          "lightbox"
-        )
-        .classList
-        .remove("show");
+      document.getElementById(
+        "lightbox"
+      ).classList.remove(
+        "show"
+      );
 
 
     }
 
 
 
-    document
-      .getElementById(
-        "lightbox"
-      )
-      .addEventListener(
-        "click",
-        function (event) {
+    document.getElementById(
+      "lightbox"
+    ).addEventListener(
+      "click",
+      function (event) {
 
 
-          if (
-            event.target === this
-          ) {
+        if (
+          event.target === this
+        ) {
 
 
-            closeLightbox();
-
-
-          }
+          closeLightbox();
 
 
         }
-      );
+
+
+      }
+    );
 
 
   </script>
