@@ -2,367 +2,644 @@
 <html lang="uz">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ruxshona & Azizbek | Bizning to‘yimiz</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>
+    Ruxshona & Azizbek | Bizning to‘yimiz
+  </title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- SHRIFTLAR -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap"
+    rel="stylesheet">
+
 
   <style>
 
+
+    /* =========================
+       UMUMIY
+    ========================= */
+
     * {
+
       margin: 0;
+
       padding: 0;
+
       box-sizing: border-box;
+
     }
 
 
     html {
+
       scroll-behavior: smooth;
+
     }
 
 
     body {
+
       background: #f7f3ed;
+
       color: #302a25;
-      font-family: "Montserrat", sans-serif;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
       text-align: center;
+
       overflow-x: hidden;
+
     }
 
 
+
     /* =========================
-       TAKLIFNOMA KONVERTI
+       PREMIUM KONVERT EKRANI
     ========================= */
 
     .invitation-cover {
+
       position: fixed;
+
       inset: 0;
 
       width: 100%;
+
       height: 100vh;
-
-      background:
-        radial-gradient(
-          circle at top,
-          #fffdf8,
-          #eee2d3
-        );
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
 
       z-index: 9999;
 
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      overflow: hidden;
+
+      background:
+        #e9e1d4;
+
       transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
+        opacity 1s ease,
+        visibility 1s ease;
+
     }
 
 
-    .invitation-cover.hide {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
+    /* SIZ YUKLAYDIGAN RASM */
 
-
-    .cover-content {
-      width: 100%;
-      padding: 25px;
-
-      text-align: center;
-    }
-
-
-    .cover-small-title {
-      font-size: 11px;
-      letter-spacing: 4px;
-
-      text-transform: uppercase;
-
-      color: #806c50;
-
-      margin-bottom: 30px;
-
-      animation:
-        coverAppear
-        1.5s ease;
-    }
-
-
-    /* =========================
-       PREMIUM KONVERT
-    ========================= */
-
-    .envelope {
-
-      width: 330px;
-      height: 220px;
-
-      max-width: 90vw;
-
-      position: relative;
-
-      margin: auto;
-
-      cursor: pointer;
-
-      perspective: 1000px;
-
-      filter:
-        drop-shadow(
-          0 20px 30px
-          rgba(0,0,0,0.18)
-        );
-
-      animation:
-        envelopeFloat
-        3s ease-in-out infinite;
-    }
-
-
-    .envelope-body {
+    .cover-background {
 
       position: absolute;
 
       inset: 0;
 
-      border-radius: 10px;
+      width: 100%;
 
-      background:
-        linear-gradient(
-          135deg,
-          #d9c4a4,
-          #b89a6a
-        );
+      height: 100%;
 
-      overflow: hidden;
+      background-image:
+        url("cover.jpg");
 
-      z-index: 1;
-    }
+      background-size:
+        cover;
 
-
-    /* KONVERT PASTKI BURCHAKLARI */
-
-    .envelope-body::before {
-
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-      bottom: 0;
-
-      width: 0;
-      height: 0;
-
-      border-left:
-        165px solid #c6a982;
-
-      border-top:
-        110px solid transparent;
-
-      border-bottom:
-        110px solid transparent;
-
-    }
-
-
-    .envelope-body::after {
-
-      content: "";
-
-      position: absolute;
-
-      right: 0;
-      bottom: 0;
-
-      width: 0;
-      height: 0;
-
-      border-right:
-        165px solid #cfb48e;
-
-      border-top:
-        110px solid transparent;
-
-      border-bottom:
-        110px solid transparent;
-
-    }
-
-
-    /* KONVERT QOPQOG'I */
-
-    .envelope-flap {
-
-      position: absolute;
-
-      top: 0;
-      left: 0;
-
-      width: 0;
-      height: 0;
-
-      border-left:
-        165px solid transparent;
-
-      border-right:
-        165px solid transparent;
-
-      border-top:
-        125px solid #a88658;
-
-      transform-origin:
-        top center;
-
-      transition:
-        transform 1s ease;
-
-      z-index: 5;
-
-    }
-
-
-    .envelope.open .envelope-flap {
+      background-position:
+        center;
 
       transform:
-        rotateX(180deg);
+        scale(1.03);
 
-      z-index: 0;
+      transition:
+        transform 1.5s ease,
+        filter 1s ease;
 
     }
 
 
-    /* =========================
-       ICHIDAGI TAKLIFNOMA
-    ========================= */
+    /* YENGIL QORONG'ILIK */
 
-    .envelope-letter {
+    .cover-overlay {
 
       position: absolute;
 
-      width: 84%;
-      height: 175px;
-
-      left: 8%;
-
-      bottom: 15px;
+      inset: 0;
 
       background:
-        linear-gradient(
-          135deg,
-          #fffdf9,
-          #f4eee5
+        rgba(
+          255,
+          253,
+          248,
+          0.08
         );
 
-      border-radius: 8px;
+      transition:
+        opacity 1s ease;
 
-      padding: 20px;
+    }
+
+
+    /* KONVERT YOPILGANDAGI QISM */
+
+    .closed-cover {
+
+      position: relative;
+
+      z-index: 10;
+
+      width: 100%;
+
+      height: 100%;
 
       display: flex;
-
-      flex-direction: column;
 
       align-items: center;
 
       justify-content: center;
 
-      box-shadow:
-        0 8px 20px
-        rgba(0,0,0,0.12);
-
-      z-index: 3;
+      flex-direction: column;
 
       transition:
-        transform 1.4s ease;
+        opacity 0.7s ease,
+        transform 0.7s ease;
 
     }
 
 
-    .envelope.open .envelope-letter {
+    /* MUHRNI BOSISH TUGMASI */
+
+    .seal-button {
+
+      width: 120px;
+
+      height: 120px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid
+        rgba(
+          110,
+          91,
+          65,
+          0.18
+        );
+
+      background:
+        rgba(
+          255,
+          253,
+          248,
+          0.12
+        );
+
+      backdrop-filter:
+        blur(2px);
+
+      cursor: pointer;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      flex-direction: column;
+
+      color:
+        rgba(
+          80,
+          65,
+          48,
+          0.8
+        );
+
+      transition:
+        transform 0.4s ease,
+        background 0.4s ease;
+
+      animation:
+        sealPulse
+        2.5s infinite;
+
+    }
+
+
+    .seal-button:hover {
 
       transform:
-        translateY(-175px);
-
-      z-index: 6;
+        scale(1.08);
 
     }
 
 
-    .letter-flower {
-
-      font-size: 18px;
-
-      color: #b89a6a;
-
-      margin-bottom: 10px;
-
-    }
-
-
-    .letter-names {
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
+    .seal-icon {
 
       font-size: 32px;
 
-      font-weight: 500;
-
-      line-height: 0.95;
+      margin-bottom: 7px;
 
     }
 
 
-    .letter-and {
-
-      color: #b89a6a;
-
-      font-size: 20px;
-
-      margin: 5px 0;
-
-    }
-
-
-    .letter-date {
-
-      margin-top: 12px;
+    .seal-text {
 
       font-size: 9px;
 
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
 
-      color: #806c50;
+      text-transform: uppercase;
 
     }
 
 
-    .open-text {
+    .tap-text {
 
-      margin-top: 40px;
+      position: absolute;
 
-      font-size: 11px;
+      bottom: 55px;
 
-      letter-spacing: 2px;
+      font-size: 10px;
+
+      letter-spacing: 3px;
 
       text-transform: uppercase;
 
-      color: #806c50;
+      color:
+        rgba(
+          70,
+          58,
+          43,
+          0.7
+        );
 
       animation:
         textPulse
         2s infinite;
 
     }
+
+
+
+    /* =========================
+       OCHILGAN TAKLIFNOMA
+    ========================= */
+
+    .opened-invitation {
+
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 20;
+
+      display: flex;
+
+      justify-content: center;
+
+      align-items: center;
+
+      padding: 25px;
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      transform:
+        scale(0.94);
+
+      transition:
+        opacity 1s ease,
+        transform 1s ease,
+        visibility 1s ease;
+
+    }
+
+
+    .invitation-cover.opened
+    .opened-invitation {
+
+      opacity: 1;
+
+      visibility: visible;
+
+      transform:
+        scale(1);
+
+    }
+
+
+    .invitation-cover.opened
+    .closed-cover {
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      transform:
+        scale(1.1);
+
+    }
+
+
+    .invitation-cover.opened
+    .cover-background {
+
+      filter:
+        blur(5px);
+
+      transform:
+        scale(1.08);
+
+    }
+
+
+    .open-card {
+
+      width: 100%;
+
+      max-width: 650px;
+
+      min-height: 380px;
+
+      padding: 45px 25px;
+
+      background:
+        rgba(
+          255,
+          253,
+          249,
+          0.92
+        );
+
+      backdrop-filter:
+        blur(15px);
+
+      border:
+        1px solid
+        rgba(
+          184,
+          154,
+          106,
+          0.35
+        );
+
+      box-shadow:
+        0 25px 70px
+        rgba(
+          0,
+          0,
+          0,
+          0.18
+        );
+
+      position: relative;
+
+      overflow: hidden;
+
+    }
+
+
+    /* GUL DEKOR */
+
+    .open-card::before {
+
+      content: "❀";
+
+      position: absolute;
+
+      top: 15px;
+
+      left: 20px;
+
+      font-size: 70px;
+
+      color:
+        rgba(
+          184,
+          154,
+          106,
+          0.12
+        );
+
+    }
+
+
+    .open-card::after {
+
+      content: "❀";
+
+      position: absolute;
+
+      right: 20px;
+
+      bottom: 10px;
+
+      font-size: 70px;
+
+      color:
+        rgba(
+          184,
+          154,
+          106,
+          0.12
+        );
+
+    }
+
+
+    .open-small-title {
+
+      position: relative;
+
+      z-index: 2;
+
+      font-size: 10px;
+
+      letter-spacing: 4px;
+
+      text-transform: uppercase;
+
+      margin-bottom: 45px;
+
+      color: #806c50;
+
+    }
+
+
+    /* KELIN VA KUYOV ISMLARI */
+
+    .couple-names {
+
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      width: 100%;
+
+      margin-bottom: 40px;
+
+    }
+
+
+    .bride-name,
+    .groom-name {
+
+      width: 42%;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size: 50px;
+
+      font-weight: 500;
+
+      line-height: 1;
+
+    }
+
+
+    .bride-name {
+
+      text-align: left;
+
+    }
+
+
+    .groom-name {
+
+      text-align: right;
+
+    }
+
+
+    .middle-symbol {
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size: 38px;
+
+      color: #b89a6a;
+
+      font-style: italic;
+
+    }
+
+
+    .open-date {
+
+      position: relative;
+
+      z-index: 2;
+
+      font-size: 10px;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 35px;
+
+      color: #806c50;
+
+    }
+
+
+    /* PASTINI KO'RISH TUGMASI */
+
+    .view-button {
+
+      position: relative;
+
+      z-index: 2;
+
+      border: none;
+
+      background: #b89a6a;
+
+      color: white;
+
+      padding:
+        16px 30px;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 10px;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+
+      cursor: pointer;
+
+      transition:
+        0.4s ease;
+
+      box-shadow:
+        0 10px 25px
+        rgba(
+          184,
+          154,
+          106,
+          0.25
+        );
+
+    }
+
+
+    .view-button:hover {
+
+      transform:
+        translateY(-3px);
+
+      background: #9f8155;
+
+    }
+
+
+    /* KONVERTNI BUTUNLAY YOPISH */
+
+    .invitation-cover.hide {
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      pointer-events: none;
+
+    }
+
 
 
     /* =========================
@@ -373,7 +650,10 @@
 
       min-height: 100vh;
 
-      padding: 35px 20px 60px;
+      padding:
+        35px
+        20px
+        60px;
 
       display: flex;
 
@@ -417,6 +697,7 @@
     .hero::before {
 
       top: 20px;
+
       left: -20px;
 
       transform:
@@ -428,6 +709,7 @@
     .hero::after {
 
       right: -20px;
+
       bottom: 20px;
 
       transform:
@@ -451,6 +733,7 @@
     }
 
 
+
     /* =========================
        ASOSIY RASM
     ========================= */
@@ -468,11 +751,19 @@
       overflow: hidden;
 
       border-radius:
-        190px 190px 30px 30px;
+        190px
+        190px
+        30px
+        30px;
 
       box-shadow:
         0 18px 45px
-        rgba(0,0,0,0.18);
+        rgba(
+          0,
+          0,
+          0,
+          0.18
+        );
 
       animation:
         imageAppear
@@ -484,6 +775,7 @@
     .hero-image img {
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
@@ -493,6 +785,7 @@
       display: block;
 
     }
+
 
 
     /* =========================
@@ -509,10 +802,6 @@
 
       margin-bottom: 25px;
 
-      animation:
-        textAppear
-        2s ease;
-
     }
 
 
@@ -527,10 +816,6 @@
       line-height: 0.95;
 
       font-weight: 500;
-
-      animation:
-        textAppear
-        2.2s ease;
 
     }
 
@@ -559,10 +844,6 @@
       line-height: 1.9;
 
       font-weight: 300;
-
-      animation:
-        textAppear
-        2.5s ease;
 
     }
 
@@ -606,13 +887,16 @@
     }
 
 
+
     /* =========================
        BO'LIMLAR
     ========================= */
 
     section {
 
-      padding: 85px 20px;
+      padding:
+        85px
+        20px;
 
       max-width: 700px;
 
@@ -681,6 +965,7 @@
     }
 
 
+
     /* =========================
        COUNTDOWN
     ========================= */
@@ -704,17 +989,25 @@
 
       width: 75px;
 
-      padding: 18px 5px;
+      padding:
+        18px
+        5px;
 
       border:
-        1px solid #d6c9b8;
+        1px solid
+        #d6c9b8;
 
       background:
         #fbf9f5;
 
       box-shadow:
         0 8px 20px
-        rgba(0,0,0,0.04);
+        rgba(
+          0,
+          0,
+          0,
+          0.04
+        );
 
     }
 
@@ -743,6 +1036,7 @@
       text-transform: uppercase;
 
     }
+
 
 
     /* =========================
@@ -775,7 +1069,12 @@
 
       box-shadow:
         0 10px 25px
-        rgba(0,0,0,0.12);
+        rgba(
+          0,
+          0,
+          0,
+          0.12
+        );
 
     }
 
@@ -787,7 +1086,10 @@
       height: 420px;
 
       border-radius:
-        180px 180px 25px 25px;
+        180px
+        180px
+        25px
+        25px;
 
     }
 
@@ -795,6 +1097,7 @@
     .gallery-item img {
 
       width: 100%;
+
       height: 100%;
 
       object-fit: cover;
@@ -816,8 +1119,9 @@
     }
 
 
+
     /* =========================
-       KATTA RASM
+       LIGHTBOX
     ========================= */
 
     .lightbox {
@@ -831,7 +1135,12 @@
       z-index: 100;
 
       background:
-        rgba(0,0,0,0.92);
+        rgba(
+          0,
+          0,
+          0,
+          0.92
+        );
 
       justify-content: center;
 
@@ -877,8 +1186,9 @@
     }
 
 
+
     /* =========================
-       PREMIUM MANZIL
+       MANZIL
     ========================= */
 
     .venue-card {
@@ -889,13 +1199,22 @@
         #fbf9f5;
 
       border:
-        1px solid #d6c9b8;
+        1px solid
+        #d6c9b8;
 
-      padding: 35px 20px 20px;
+      padding:
+        35px
+        20px
+        20px;
 
       box-shadow:
         0 15px 35px
-        rgba(0,0,0,0.06);
+        rgba(
+          0,
+          0,
+          0,
+          0.06
+        );
 
     }
 
@@ -912,7 +1231,8 @@
       border-radius: 50%;
 
       border:
-        1px solid #b89a6a;
+        1px solid
+        #b89a6a;
 
       display: flex;
 
@@ -953,10 +1273,6 @@
     }
 
 
-    /* =========================
-       XARITA
-    ========================= */
-
     .map-container {
 
       width: 100%;
@@ -968,13 +1284,19 @@
       border-radius: 20px;
 
       border:
-        1px solid #d6c9b8;
+        1px solid
+        #d6c9b8;
 
       margin-top: 25px;
 
       box-shadow:
         0 12px 30px
-        rgba(0,0,0,0.10);
+        rgba(
+          0,
+          0,
+          0,
+          0.10
+        );
 
     }
 
@@ -997,10 +1319,12 @@
       margin-top: 25px;
 
       padding:
-        14px 28px;
+        14px
+        28px;
 
       border:
-        1px solid #b89a6a;
+        1px solid
+        #b89a6a;
 
       background:
         #b89a6a;
@@ -1016,23 +1340,12 @@
 
       text-transform: uppercase;
 
-      transition:
-        0.3s ease;
-
     }
 
-
-    .map-button:hover {
-
-      background: transparent;
-
-      color: #302a25;
-
-    }
 
 
     /* =========================
-       MUSIQA TUGMASI
+       MUSIQA
     ========================= */
 
     .music-button {
@@ -1050,7 +1363,8 @@
       border-radius: 50%;
 
       border:
-        1px solid #b89a6a;
+        1px solid
+        #b89a6a;
 
       background:
         #f7f3ed;
@@ -1066,7 +1380,12 @@
 
       box-shadow:
         0 8px 20px
-        rgba(0,0,0,0.12);
+        rgba(
+          0,
+          0,
+          0,
+          0.12
+        );
 
     }
 
@@ -1080,6 +1399,7 @@
     }
 
 
+
     /* =========================
        FOOTER
     ========================= */
@@ -1087,7 +1407,8 @@
     footer {
 
       padding:
-        70px 20px;
+        70px
+        20px;
 
       font-family:
         "Cormorant Garamond",
@@ -1096,29 +1417,36 @@
       font-size: 28px;
 
       background:
-        rgba(184,154,106,0.08);
+        rgba(
+          184,
+          154,
+          106,
+          0.08
+        );
 
     }
+
 
 
     /* =========================
        ANIMATSIYALAR
     ========================= */
 
-    @keyframes envelopeFloat {
+    @keyframes sealPulse {
 
       0%,
       100% {
 
         transform:
-          translateY(0);
+          scale(1);
 
       }
+
 
       50% {
 
         transform:
-          translateY(-12px);
+          scale(1.05);
 
       }
 
@@ -1130,36 +1458,14 @@
       0%,
       100% {
 
-        opacity: 0.5;
+        opacity: 0.45;
 
       }
+
 
       50% {
 
         opacity: 1;
-
-      }
-
-    }
-
-
-    @keyframes coverAppear {
-
-      from {
-
-        opacity: 0;
-
-        transform:
-          scale(0.95);
-
-      }
-
-      to {
-
-        opacity: 1;
-
-        transform:
-          scale(1);
 
       }
 
@@ -1178,35 +1484,13 @@
 
       }
 
+
       to {
 
         opacity: 1;
 
         transform:
           scale(1)
-          translateY(0);
-
-      }
-
-    }
-
-
-    @keyframes textAppear {
-
-      from {
-
-        opacity: 0;
-
-        transform:
-          translateY(25px);
-
-      }
-
-      to {
-
-        opacity: 1;
-
-        transform:
           translateY(0);
 
       }
@@ -1223,12 +1507,14 @@
 
       }
 
+
       50% {
 
         transform:
           scale(1.08);
 
       }
+
 
       100% {
 
@@ -1240,27 +1526,44 @@
     }
 
 
+
     /* =========================
        TELEFON
     ========================= */
 
-    @media (max-width: 500px) {
+    @media
+    (max-width: 500px) {
 
-      .envelope {
 
-        width: 300px;
-        height: 205px;
+      .open-card {
+
+        min-height: 420px;
+
+        padding:
+          40px
+          20px;
 
       }
 
 
-      .envelope-flap {
+      .bride-name,
+      .groom-name {
 
-        border-left-width:
-          150px;
+        font-size: 38px;
 
-        border-right-width:
-          150px;
+      }
+
+
+      .middle-symbol {
+
+        font-size: 28px;
+
+      }
+
+
+      .couple-names {
+
+        align-items: center;
 
       }
 
@@ -1301,6 +1604,7 @@
 
       }
 
+
     }
 
   </style>
@@ -1308,11 +1612,13 @@
 </head>
 
 
+
 <body>
 
 
+
   <!-- =====================
-       TAKLIFNOMA KONVERTI
+       YOPIQ TAKLIFNOMA
   ====================== -->
 
   <div
@@ -1320,78 +1626,133 @@
     id="invitationCover">
 
 
-    <div class="cover-content">
+    <!-- RASM -->
+
+    <div
+      class="cover-background">
+    </div>
 
 
-      <div class="cover-small-title">
-
-        Siz uchun maxsus taklifnoma
-
-      </div>
+    <div
+      class="cover-overlay">
+    </div>
 
 
-      <div
-        class="envelope"
-        id="envelope"
+
+    <!-- YOPIQ HOLAT -->
+
+    <div
+      class="closed-cover">
+
+
+      <button
+        class="seal-button"
         onclick="openInvitation()">
 
 
         <div
-          class="envelope-body">
+          class="seal-icon">
+
+          ✿
+
         </div>
 
 
         <div
-          class="envelope-flap">
+          class="seal-text">
+
+          Ochish
+
         </div>
 
 
+      </button>
+
+
+      <div
+        class="tap-text">
+
+        Taklifnomani ochish uchun bosing
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- OCHILGANDAN KEYINGI TAKLIFNOMA -->
+
+    <div
+      class="opened-invitation">
+
+
+      <div
+        class="open-card">
+
+
         <div
-          class="envelope-letter">
+          class="open-small-title">
+
+          Bizning to‘yimiz
+
+        </div>
+
+
+
+        <!-- ISMLAR IKKI TOMONDA -->
+
+        <div
+          class="couple-names">
 
 
           <div
-            class="letter-flower">
+            class="bride-name">
 
-            ❀
+            Ruxshona
 
           </div>
 
 
           <div
-            class="letter-names">
+            class="middle-symbol">
 
-            Ruxshona
+            &
 
-            <div
-              class="letter-and">
+          </div>
 
-              &
 
-            </div>
+          <div
+            class="groom-name">
 
             Azizbek
 
           </div>
 
 
-          <div
-            class="letter-date">
+        </div>
 
-            15 SENTYABR 2026
 
-          </div>
 
+        <div
+          class="open-date">
+
+          15 SENTYABR 2026
 
         </div>
 
 
-      </div>
 
+        <!-- PASTINI KO'RISH -->
 
-      <div class="open-text">
+        <button
+          class="view-button"
+          onclick="showInvitation()">
 
-        Taklifnomani ochish uchun bosing
+          ↓ Pastini ko‘rish
+
+        </button>
+
 
       </div>
 
@@ -1407,41 +1768,55 @@
        BOSH SAHIFA
   ====================== -->
 
-  <div class="hero">
+  <div
+    class="hero"
+    id="mainInvitation">
 
 
-    <div class="hero-image">
+    <div
+      class="hero-image">
+
 
       <img
         src="couple.jpg"
         alt="Ruxshona va Azizbek">
 
+
     </div>
 
 
-    <div class="small-title">
+
+    <div
+      class="small-title">
 
       Bizning to‘yimiz
 
     </div>
 
 
-    <div class="names">
+
+    <div
+      class="names">
 
       Ruxshona
 
-      <div class="and">
+
+      <div
+        class="and">
 
         &
 
       </div>
+
 
       Azizbek
 
     </div>
 
 
-    <p class="invitation">
+
+    <p
+      class="invitation">
 
       Hayotimizdagi eng go‘zal
       kunlardan birini siz bilan
@@ -1451,17 +1826,24 @@
     </p>
 
 
-    <div class="divider"></div>
+
+    <div
+      class="divider">
+    </div>
 
 
-    <div class="date">
+
+    <div
+      class="date">
 
       15 SENTYABR 2026
 
     </div>
 
 
-    <div class="time">
+
+    <div
+      class="time">
 
       SOAT 18:00
 
@@ -1476,20 +1858,25 @@
        TAKLIF
   ====================== -->
 
-  <section>
+  <section
+    id="invitation-details">
 
-    <h2 class="section-title">
+
+    <h2
+      class="section-title">
 
       Sizni kutamiz
 
     </h2>
 
 
-    <p class="text">
+    <p
+      class="text">
 
       Aziz mehmonimiz!
 
-      <br><br>
+      <br>
+      <br>
 
       Sizni baxtimizga guvoh bo‘lish
       va quvonchli kunimizni
@@ -1497,6 +1884,7 @@
       samimiy taklif qilamiz.
 
     </p>
+
 
   </section>
 
@@ -1508,53 +1896,92 @@
 
   <section>
 
-    <h2 class="section-title">
+
+    <h2
+      class="section-title">
 
       To‘yimizgacha
 
     </h2>
 
 
-    <div class="countdown">
+    <div
+      class="countdown">
 
 
-      <div class="time-box">
+      <div
+        class="time-box">
 
-        <strong id="days">00</strong>
+        <strong
+          id="days">
 
-        <span>Kun</span>
+          00
 
-      </div>
+        </strong>
 
-
-      <div class="time-box">
-
-        <strong id="hours">00</strong>
-
-        <span>Soat</span>
-
-      </div>
-
-
-      <div class="time-box">
-
-        <strong id="minutes">00</strong>
-
-        <span>Daqiqa</span>
+        <span>
+          Kun
+        </span>
 
       </div>
 
 
-      <div class="time-box">
 
-        <strong id="seconds">00</strong>
+      <div
+        class="time-box">
 
-        <span>Soniya</span>
+        <strong
+          id="hours">
+
+          00
+
+        </strong>
+
+        <span>
+          Soat
+        </span>
+
+      </div>
+
+
+
+      <div
+        class="time-box">
+
+        <strong
+          id="minutes">
+
+          00
+
+        </strong>
+
+        <span>
+          Daqiqa
+        </span>
+
+      </div>
+
+
+
+      <div
+        class="time-box">
+
+        <strong
+          id="seconds">
+
+          00
+
+        </strong>
+
+        <span>
+          Soniya
+        </span>
 
       </div>
 
 
     </div>
+
 
   </section>
 
@@ -1566,14 +1993,17 @@
 
   <section>
 
-    <h2 class="section-title">
+
+    <h2
+      class="section-title">
 
       Bizning lahzalarimiz
 
     </h2>
 
 
-    <p class="text">
+    <p
+      class="text">
 
       Bizning eng go‘zal va
       unutilmas lahzalarimiz.
@@ -1581,10 +2011,13 @@
     </p>
 
 
-    <div class="gallery">
+
+    <div
+      class="gallery">
 
 
-      <div class="gallery-item">
+      <div
+        class="gallery-item">
 
         <img
           src="gallery1.jpg"
@@ -1593,7 +2026,9 @@
       </div>
 
 
-      <div class="gallery-item">
+
+      <div
+        class="gallery-item">
 
         <img
           src="gallery2.jpg"
@@ -1602,7 +2037,9 @@
       </div>
 
 
-      <div class="gallery-item">
+
+      <div
+        class="gallery-item">
 
         <img
           src="gallery3.jpg"
@@ -1611,7 +2048,9 @@
       </div>
 
 
-      <div class="gallery-item">
+
+      <div
+        class="gallery-item">
 
         <img
           src="gallery4.jpg"
@@ -1621,6 +2060,7 @@
 
 
     </div>
+
 
   </section>
 
@@ -1632,14 +2072,17 @@
 
   <section>
 
-    <h2 class="section-title">
+
+    <h2
+      class="section-title">
 
       Manzil
 
     </h2>
 
 
-    <p class="text">
+    <p
+      class="text">
 
       Quvonchli kunimizda
       sizni kutib qolamiz.
@@ -1647,24 +2090,30 @@
     </p>
 
 
-    <div class="venue-card">
+
+    <div
+      class="venue-card">
 
 
-      <div class="venue-icon">
+      <div
+        class="venue-icon">
 
         📍
 
       </div>
 
 
-      <div class="venue-name">
+      <div
+        class="venue-name">
 
         Zarafshon Hall
 
       </div>
 
 
-      <p class="venue-address">
+
+      <p
+        class="venue-address">
 
         Muhammad Iqbol ko‘chasi, 7
 
@@ -1676,7 +2125,10 @@
       </p>
 
 
-      <div class="map-container">
+
+      <div
+        class="map-container">
+
 
         <iframe
           src="https://www.google.com/maps?q=ZARAFSHON+HALL,+M+Iqbol+7,+Bukhara,+Uzbekistan&output=embed"
@@ -1685,7 +2137,9 @@
 
         </iframe>
 
+
       </div>
+
 
 
       <a
@@ -1700,6 +2154,7 @@
 
     </div>
 
+
   </section>
 
 
@@ -1710,20 +2165,24 @@
 
   <section>
 
-    <h2 class="section-title">
+
+    <h2
+      class="section-title">
 
       Sevgi bilan
 
     </h2>
 
 
-    <p class="text">
+    <p
+      class="text">
 
       Sizning tashrifingiz
       biz uchun eng katta
       sovg‘alardan biridir.
 
     </p>
+
 
   </section>
 
@@ -1736,9 +2195,13 @@
   <footer>
 
     Ruxshona
+
     <br>
+
     &
+
     <br>
+
     Azizbek
 
   </footer>
@@ -1759,20 +2222,23 @@
   </button>
 
 
+
   <audio
     id="music"
     loop>
 
+
     <source
       src="music.mp3"
       type="audio/mpeg">
+
 
   </audio>
 
 
 
   <!-- =====================
-       RASMNI KATTALASHTIRISH
+       KATTA RASM
   ====================== -->
 
   <div
@@ -1813,10 +2279,26 @@
     function openInvitation() {
 
 
-      const envelope =
+      const cover =
         document.getElementById(
-          "envelope"
+          "invitationCover"
         );
+
+
+      cover.classList.add(
+        "opened"
+      );
+
+
+    }
+
+
+
+    /* =====================
+       PASTINI KO'RISH
+    ====================== */
+
+    function showInvitation() {
 
 
       const cover =
@@ -1825,8 +2307,8 @@
         );
 
 
-      envelope.classList.add(
-        "open"
+      cover.classList.add(
+        "hide"
       );
 
 
@@ -1834,13 +2316,20 @@
         function () {
 
 
-          cover.classList.add(
-            "hide"
-          );
+          document
+            .getElementById(
+              "mainInvitation"
+            )
+            .scrollIntoView({
+
+              behavior:
+                "smooth"
+
+            });
 
 
         },
-        1800
+        500
       );
 
 
@@ -1859,42 +2348,55 @@
 
 
 
-    /* =====================
-       COUNTDOWN
-    ====================== */
+    /* COUNTDOWN */
 
     function updateCountdown() {
 
 
       const now =
-        new Date().getTime();
+        new Date()
+        .getTime();
 
 
       const difference =
         weddingDate - now;
 
 
-      if (difference <= 0) {
+      if (
+        difference <= 0
+      ) {
 
 
-        document.getElementById(
-          "days"
-        ).innerText = "00";
+        document
+          .getElementById(
+            "days"
+          )
+          .innerText =
+          "00";
 
 
-        document.getElementById(
-          "hours"
-        ).innerText = "00";
+        document
+          .getElementById(
+            "hours"
+          )
+          .innerText =
+          "00";
 
 
-        document.getElementById(
-          "minutes"
-        ).innerText = "00";
+        document
+          .getElementById(
+            "minutes"
+          )
+          .innerText =
+          "00";
 
 
-        document.getElementById(
-          "seconds"
-        ).innerText = "00";
+        document
+          .getElementById(
+            "seconds"
+          )
+          .innerText =
+          "00";
 
 
         return;
@@ -1905,7 +2407,12 @@
       const days =
         Math.floor(
           difference /
-          (1000 * 60 * 60 * 24)
+          (
+            1000 *
+            60 *
+            60 *
+            24
+          )
         );
 
 
@@ -1913,10 +2420,19 @@
         Math.floor(
           (
             difference %
-            (1000 * 60 * 60 * 24)
+            (
+              1000 *
+              60 *
+              60 *
+              24
+            )
           )
           /
-          (1000 * 60 * 60)
+          (
+            1000 *
+            60 *
+            60
+          )
         );
 
 
@@ -1924,10 +2440,17 @@
         Math.floor(
           (
             difference %
-            (1000 * 60 * 60)
+            (
+              1000 *
+              60 *
+              60
+            )
           )
           /
-          (1000 * 60)
+          (
+            1000 *
+            60
+          )
         );
 
 
@@ -1935,39 +2458,62 @@
         Math.floor(
           (
             difference %
-            (1000 * 60)
+            (
+              1000 *
+              60
+            )
           )
           /
           1000
         );
 
 
-      document.getElementById(
-        "days"
-      ).innerText =
+      document
+        .getElementById(
+          "days"
+        )
+        .innerText =
         String(days)
-        .padStart(2, "0");
+        .padStart(
+          2,
+          "0"
+        );
 
 
-      document.getElementById(
-        "hours"
-      ).innerText =
+      document
+        .getElementById(
+          "hours"
+        )
+        .innerText =
         String(hours)
-        .padStart(2, "0");
+        .padStart(
+          2,
+          "0"
+        );
 
 
-      document.getElementById(
-        "minutes"
-      ).innerText =
+      document
+        .getElementById(
+          "minutes"
+        )
+        .innerText =
         String(minutes)
-        .padStart(2, "0");
+        .padStart(
+          2,
+          "0"
+        );
 
 
-      document.getElementById(
-        "seconds"
-      ).innerText =
+      document
+        .getElementById(
+          "seconds"
+        )
+        .innerText =
         String(seconds)
-        .padStart(2, "0");
+        .padStart(
+          2,
+          "0"
+        );
 
 
     }
@@ -2002,15 +2548,19 @@
         );
 
 
-      if (music.paused) {
+      if (
+        music.paused
+      ) {
 
 
         music.play();
 
 
-        button.classList.add(
-          "playing"
-        );
+        button
+          .classList
+          .add(
+            "playing"
+          );
 
 
       } else {
@@ -2019,9 +2569,11 @@
         music.pause();
 
 
-        button.classList.remove(
-          "playing"
-        );
+        button
+          .classList
+          .remove(
+            "playing"
+          );
 
 
       }
@@ -2032,11 +2584,12 @@
 
 
     /* =====================
-       SCROLL ANIMATSIYASI
+       SCROLL ANIMATSIYA
     ====================== */
 
     const sections =
-      document.querySelectorAll(
+      document
+      .querySelectorAll(
         "section"
       );
 
@@ -2045,7 +2598,9 @@
 
 
       sections.forEach(
-        (section) => {
+        function (
+          section
+        ) {
 
 
           const sectionTop =
@@ -2055,7 +2610,8 @@
 
 
           const screenHeight =
-            window.innerHeight;
+            window
+            .innerHeight;
 
 
           if (
@@ -2064,9 +2620,11 @@
           ) {
 
 
-            section.classList.add(
-              "show"
-            );
+            section
+              .classList
+              .add(
+                "show"
+              );
 
 
           }
@@ -2094,13 +2652,16 @@
     ====================== */
 
     const galleryImages =
-      document.querySelectorAll(
+      document
+      .querySelectorAll(
         ".gallery-item img"
       );
 
 
     galleryImages.forEach(
-      (image) => {
+      function (
+        image
+      ) {
 
 
         image.addEventListener(
@@ -2108,17 +2669,22 @@
           function () {
 
 
-            document.getElementById(
-              "lightbox-img"
-            ).src =
+            document
+              .getElementById(
+                "lightbox-img"
+              )
+              .src =
               this.src;
 
 
-            document.getElementById(
-              "lightbox"
-            ).classList.add(
-              "show"
-            );
+            document
+              .getElementById(
+                "lightbox"
+              )
+              .classList
+              .add(
+                "show"
+              );
 
 
           }
@@ -2133,37 +2699,45 @@
     function closeLightbox() {
 
 
-      document.getElementById(
-        "lightbox"
-      ).classList.remove(
-        "show"
-      );
+      document
+        .getElementById(
+          "lightbox"
+        )
+        .classList
+        .remove(
+          "show"
+        );
 
 
     }
 
 
 
-    document.getElementById(
-      "lightbox"
-    ).addEventListener(
-      "click",
-      function (event) {
-
-
-        if (
-          event.target === this
+    document
+      .getElementById(
+        "lightbox"
+      )
+      .addEventListener(
+        "click",
+        function (
+          event
         ) {
 
 
-          closeLightbox();
+          if (
+            event.target ===
+            this
+          ) {
+
+
+            closeLightbox();
+
+
+          }
 
 
         }
-
-
-      }
-    );
+      );
 
 
   </script>
@@ -2171,4 +2745,4 @@
 
 </body>
 
-  </html>
+  </html>    
